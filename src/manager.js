@@ -42,7 +42,7 @@ function start(host, numberOfWorkers) {
 
     // initialize the workers
     for(let i = 0; i < numberOfWorkers; i++) {
-        let worker = new Worker('./worker.js');
+        let worker = new Worker(__dirname + '/worker.js');
         worker.on('message', function (data) {
             availableWorkers.push(worker);  // mark worker as available for work
             if(data.links) {
