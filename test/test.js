@@ -1,7 +1,6 @@
 const { test } = require('node:test');
 const assert = require('assert');
-const manager = require('./manager');
-const utils = require('./utils');
+const utils = require('../src/utils');
 const testUtils = require('./testUtils');
 const { exec } = require("child_process");
 
@@ -41,13 +40,6 @@ test('crawler negative missing arguments', () => {
     });
 })
 
-const expectedLogs = [
-    'http://localhost/',
-    'http://localhost/reviews',
-    'http://localhost/aboutUs',
-    'http://localhost/ourClients',
-];
-
 function _test_server(func) {
     let server = func();
     exec('./crawl -n 3 "http://localhost/"', (error, stdout, stderr) => {
@@ -55,7 +47,7 @@ function _test_server(func) {
             assert.ok(stdout !== null, 'expected true');
             let consoleLog = stdout.split('\n').slice(0, -1); // omit last item ('')
             assert.strictEqual(consoleLog.length, 4, 'expected equal');
-            expectedLogs.forEach(log => assert.ok(consoleLog.includes(log), 'expected true'));
+            testUtils.expectedLogs.forEach(log => assert.ok(consoleLog.includes(log), 'expected true'));
         } finally {
             server.close();
         }

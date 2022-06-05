@@ -1,5 +1,5 @@
-const utils = require('./utils');
-const manager = require('./manager');
+const utils = require('./src/utils');
+const manager = require('./src/manager');
 
 const args = process.argv.slice(2);
 if(args.length !== 3 || args[0] !== '-n' || isNaN(parseInt(args[1])) || utils.isIp(args[2])) {

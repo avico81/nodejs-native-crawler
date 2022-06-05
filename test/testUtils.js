@@ -38,8 +38,15 @@ function createLocalhostServer_withLoops() {
     return _createLocalhostServer('<html><body><div><img src="/images/test"/></div><a href="/"/></body></html>');
 }
 
+const expectedLogs = [
+    'http://localhost/',
+    'http://localhost/reviews',
+    'http://localhost/aboutUs',
+    'http://localhost/ourClients',
+];
 
 module.exports = {
     createLocalhostServer_noLoops,
-    createLocalhostServer_withLoops
+    createLocalhostServer_withLoops,
+    expectedLogs,
 }
