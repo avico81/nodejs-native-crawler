@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/avico81/nodejs-native-crawler/issues"
   },
-  "homepage": "https://github.com/avico81/nodejs-native-crawler#readme"
+  "homepage": "https://github.com/avico81/nodejs-native-crawler#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
